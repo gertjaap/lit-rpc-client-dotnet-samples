@@ -5,8 +5,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <!--<ItemGroup>
+    <ProjectReference Include="..\..\lit-rpc-client-dotnet\src\Mit.Dci.Lit.LitClient.csproj" />
+  </ItemGroup>-->
+
   <ItemGroup>
-    <PackageReference Include="Mit.Dci.Lit.LitClient" Version="1.0.1" />
+    <PackageReference Include="Mit.Dci.Lit.LitClient" Version="1.0.2" />
   </ItemGroup>
 
 </Project>

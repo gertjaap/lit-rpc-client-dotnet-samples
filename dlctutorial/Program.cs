@@ -73,16 +73,20 @@ namespace tutorial
         // Connect the two nodes together
         static async Task ConnectNodes() {
             // Connect to both LIT nodes
-            await lit1.Connect();
-            await lit2.Connect();
+            await lit1.Open();
+            await lit2.Open();
 
             // Instruct both nodes to listen for incoming connections
-            await lit1.Listen();
+            try { 
+                 await lit1.Listen();
+            } catch (Exception ex) {
+                Console.WriteLine("Ex: {0}", ex);
+            }
             await lit2.Listen();
 
             // Connect node 1 to node 2
             var lnAdr = await lit2.GetLNAddress();
-            lit1.Connect(lnAdr,"localhost:2449");
+            await lit1.Connect(lnAdr,"localhost:2449");
         }
 
         static async Task<int[]> CheckOracle() {
